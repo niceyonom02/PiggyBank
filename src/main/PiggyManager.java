@@ -35,11 +35,11 @@ public class PiggyManager {
     public void addNewPiggy(Player player) {
         if (!isPlayerHasPiggy(player)) {
             Pig pig = (Pig) player.getWorld().spawnEntity(player.getLocation(), EntityType.PIG);
-            piggyList.add(new Data(player.getUniqueId(), pig, 0.0, instance.getEcon()));
-            player.sendMessage("꿀꿀이 은행을 만들었습니다!");
-            player.sendMessage("꿀꿀!");
+            piggyList.add(new Data(player.getUniqueId(), pig, 0.0, instance));
+            player.sendMessage("§e꿀꿀이 은행을 만들었습니다!");
+            player.sendMessage("§e꿀꿀!");
         } else {
-            player.sendMessage("이미 꿀꿀이 은행이 있습니다!");
+            player.sendMessage("§c이미 꿀꿀이 은행이 있습니다!");
         }
     }
 
@@ -65,11 +65,11 @@ public class PiggyManager {
                     Pig pig = (Pig) player.getWorld().spawnEntity(player.getLocation(), EntityType.PIG);
                     data.setPig(pig);
                 } else {
-                    player.sendMessage("이미 켜진 기능입니다!");
+                    player.sendMessage("§c이미 켜진 기능입니다!");
                 }
             }
         } else {
-            player.sendMessage("꿀꿀이 은행이 없습니다!");
+            player.sendMessage("§c꿀꿀이 은행이 없습니다!");
         }
     }
 
@@ -80,10 +80,10 @@ public class PiggyManager {
                 data.setPig(null);
                 instance.getEcon().depositPlayer(player, data.getMoney());
                 piggyList.remove(data);
-                player.sendMessage("꿀꿀 ㅜㅜㅜ");
+                player.sendMessage("§e꿀꿀 ㅜㅜㅜ");
             }
         } else {
-            player.sendMessage("꿀꿀이 은행이 없습니다!");
+            player.sendMessage("§c꿀꿀이 은행이 없습니다!");
         }
     }
 
@@ -95,11 +95,11 @@ public class PiggyManager {
                     data.getPig().remove();
                     data.setPig(null);
                 } else {
-                    player.sendMessage("이미 꺼진 기능입니다!");
+                    player.sendMessage("§c이미 꺼진 기능입니다!");
                 }
             }
         } else {
-            player.sendMessage("꿀꿀이 은행이 없습니다!");
+            player.sendMessage("§c꿀꿀이 은행이 없습니다!");
         }
     }
 
@@ -120,7 +120,7 @@ public class PiggyManager {
                 if (money == null) {
                     money = 0.0;
                 }
-                Data temp = new Data(UUID.fromString(uuid), null, money, instance.getEcon());
+                Data temp = new Data(UUID.fromString(uuid), null, money, instance);
                 piggyList.add(temp);
             }
         }
