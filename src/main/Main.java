@@ -16,6 +16,8 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        instance = this;
+
         if (!this.getDataFolder().mkdir()) {
             this.getDataFolder().mkdir();
         }
@@ -33,8 +35,6 @@ public class Main extends JavaPlugin {
         if (!setupEconomy()) {
             getLogger().info("[ 경고 ] Vault 플러그인이 발견되지 않았습니다!");
         }
-
-        instance = this;
         Bukkit.getLogger().info("꿀꿀이 은행 V1이 켜지는 중입니다!");
         piggyManager = new PiggyManager(instance);
         getCommand("piggy").setExecutor(new Piggy(piggyManager));
