@@ -1,0 +1,5 @@
+name: piggyBank
+version: 1.0.0
+main: main.Main
+commands:
+  piggy:
